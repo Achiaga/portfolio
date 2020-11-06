@@ -24,22 +24,19 @@ const gradient = keyframes`
 }
 `;
 
+const isPartyTheme = ({ themeType }) => themeType === 'party';
+
 const AppContainer = styled.div`
-	background: ${(props) => props.theme.colors.secondary};
-	background-size: ${(props) =>
-		props.themeType === 'party' ? '500% 500%' : 'none'};
-	animation: ${(props) =>
-		props.themeType === 'party'
-			? css`
-					${gradient} 3s ease infinite
-			  `
-			: 'none'};
-	color: ${(props) => props.theme.colors.primary};
+	background: ${({ theme }) => theme.colors.secondary};
+	background-size: ${(props) => (isPartyTheme(props) ? '500% 500%' : 'none')};
+	animation: ${(props) => (isPartyTheme(props) ? gradient : null)} 3s ease
+		infinite;
+	color: ${({ theme }) => theme.colors.primary};
 	font-family: 'Nunito', sans-serif;
 	transition: background-color 0.35s;
 `;
 
-function App() {
+const App = () => {
 	const [scrollProgress, setScrollProgress] = useState('20%');
 	const [didScroll, setDidScroll] = useState(false);
 	const [toast, setToast] = useState([]);
@@ -144,6 +141,6 @@ function App() {
 			</AppContainer>
 		</Theme>
 	);
-}
+};
 
 export default App;
