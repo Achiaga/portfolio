@@ -87,7 +87,7 @@ const Title = styled(motion.h1)`
 const FirstTitle = styled(Title)`
 	font-size: 20px;
 	margin: 0.4em 0;
-	color: white;
+	color: ${(props) => props.theme.colors.letter};
 	cursor: default;
 	font-family: 'Asap', sans-serif;
 	@media only screen and (max-width: 450px) {
@@ -103,7 +103,7 @@ const FirstTitle = styled(Title)`
 const SubTitle = styled(Title)`
 	font-size: 38px;
 	margin: 0;
-	color: white;
+	color: ${(props) => props.theme.colors.letter};
 	cursor: default;
 	font-family: 'Asap', sans-serif;
 	@media only screen and (max-width: 800px) {
@@ -124,7 +124,7 @@ const Description = styled(Title)`
 	width: 690px;
 	font-size: 25px;
 	margin: 0;
-	color: white;
+	color: ${(props) => props.theme.colors.letter};
 	cursor: default;
 	word-spacing: 2px;
 	line-height: 45px;
@@ -220,7 +220,10 @@ const Hero = ({ didScroll, handleToast, heroRef }) => {
 						transition={{ duration: 1 }}>
 						I'm a <span>Frontend Web Engineer</span> building cool stuff.
 					</SubTitle>
-					<Description initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }}>
+					<Description
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						transition={{ duration: 2 }}>
 						{
 							"I'm a self-taught frontend software engineer. I'm 23 years old. I have lived in 🇪🇸 🇸🇪 🇰🇷. I like building ( and designing ) exceptional websites, applications, and everything in between.  I speak fluently  🇪🇸  🇺🇸."
 						}

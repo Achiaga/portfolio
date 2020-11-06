@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MinusOutline } from '@styled-icons/evaicons-outline/';
 import { RightArrow } from '@styled-icons/boxicons-regular/';
-import { dataEducation } from './data';
+import { dataEducation } from '../../data/data';
 
 const SubItemContainer = styled(motion.div)`
 	padding-left: 10px;
@@ -39,7 +39,7 @@ const SubItemIcon = styled.div`
 	justify-content: center;
 	padding: 0 2px;
 	height: 22px;
-	color: #ffffff8c;
+	color: ${(props) => props.theme.colors.letter};
 	svg {
 		width: 30px;
 	}
@@ -99,7 +99,9 @@ const ItemEducationList = ({ item, index }) => {
 					<RightArrow />
 				</IconList>
 				<div style={{ paddingLeft: '1.3em' }}>
-					<motion.span whileHover={{ color: 'palevioletred' }}>{dataEducation[item].main}</motion.span>
+					<motion.span whileHover={{ color: 'palevioletred' }}>
+						{dataEducation[item].main}
+					</motion.span>
 					<AnimatePresence initial={false}>
 						{expand ? <SubEducationItems expand={expand} item={item} /> : null}
 					</AnimatePresence>

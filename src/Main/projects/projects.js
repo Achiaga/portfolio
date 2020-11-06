@@ -12,7 +12,7 @@ const Container = styled(motion.section)`
 	margin: 0px auto;
 	max-width: 1600px;
 	min-height: 90vh;
-	color: white;
+	color: ${(props) => props.theme.colors.letter};
 	overflow: hidden;
 	font-family: 'Asap', sans-serif;
 	@media only screen and (max-width: 450px) {
@@ -27,7 +27,7 @@ const Container = styled(motion.section)`
 
 const Title = styled(motion.div)`
 	width: 100%;
-	color: white;
+	color: ${(props) => props.theme.colors.letter};
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
@@ -54,7 +54,7 @@ const Line = styled.div`
 	display: block;
 	width: 75%;
 	height: 0px;
-	border-bottom: 0.5px solid #ffffff5e;
+	border-bottom: 0.5px solid ${(props) => props.theme.colors.letter};
 	@media only screen and (max-width: 450px) {
 		width: 45%;
 	}
@@ -79,7 +79,8 @@ const ButtonContainer = styled.div`
 	padding: 0em 1.5em;
 	border-radius: 5px;
 	background: #ffffff14;
-	box-shadow: rgb(0 0 0 / 14%) 0px 2px 3px 0px, rgb(0 0 0 / 15%) 0px 10px 15px 0px;
+	box-shadow: rgb(0 0 0 / 14%) 0px 2px 3px 0px,
+		rgb(0 0 0 / 15%) 0px 10px 15px 0px;
 	@media only screen and (max-width: 450px) {
 		width: 55%;
 	}
@@ -110,7 +111,8 @@ const BackgroundButton = styled(motion.div)`
 	z-index: -1;
 	left: -11px;
 	top: -7px;
-	box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 3px 0px, rgba(0, 0, 0, 0.06) 0px 10px 15px 0px;
+	box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 3px 0px,
+		rgba(0, 0, 0, 0.06) 0px 10px 15px 0px;
 	@media only screen and (max-width: 450px) {
 		left: -8px;
 		top: -6px;
@@ -148,7 +150,10 @@ const Projects = ({ projectRef }) => {
 				<AnimateSharedLayout>
 					<ButtonContainer>
 						<Button
-							whileHover={{ scaleX: [1, 1.2, 0.85, 1], scaleY: [1, 0.8, 1.15, 1] }}
+							whileHover={{
+								scaleX: [1, 1.2, 0.85, 1],
+								scaleY: [1, 0.8, 1.15, 1],
+							}}
 							transition={{}}
 							onClick={handleProjects}
 							id='advanced'>
@@ -156,7 +161,10 @@ const Projects = ({ projectRef }) => {
 							Advanced
 						</Button>
 						<Button
-							whileHover={{ scaleX: [1, 1.2, 0.85, 1], scaleY: [1, 0.8, 1.15, 1] }}
+							whileHover={{
+								scaleX: [1, 1.2, 0.85, 1],
+								scaleY: [1, 0.8, 1.15, 1],
+							}}
 							transition={{}}
 							onClick={handleProjects}
 							id='beginner'>
@@ -166,7 +174,13 @@ const Projects = ({ projectRef }) => {
 					</ButtonContainer>
 				</AnimateSharedLayout>
 			</ButtonBox>
-			<Body>{showAdvanced ? <AdvancedProjects isMobile={isMobile} /> : <BeginnerProjects />}</Body>
+			<Body>
+				{showAdvanced ? (
+					<AdvancedProjects isMobile={isMobile} />
+				) : (
+					<BeginnerProjects />
+				)}
+			</Body>
 		</Container>
 	);
 };

@@ -3,16 +3,22 @@ import { ThemeProvider } from 'styled-components';
 
 const colors = {
 	light: {
-		primary: 'white',
-		secondary: 'black',
-		forest: '#38a66d',
-		lightForest: '#03b554',
+		letter: 'black',
+		primary: 'palevioletred',
+		secondary: 'white',
+		transparent: '#0000009e',
+	},
+	party: {
+		letter: 'black',
+		primary: 'palevioletred',
+		secondary: 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)',
+		transparent: '#0000009e',
 	},
 	dark: {
-		primary: 'white',
-		secondary: 'black',
-		forest: '#38a66d',
-		lightForest: '#03b554',
+		letter: 'white',
+		primary: 'palevioletred',
+		secondary: '#1e1e1e',
+		transparent: '#ffffff9e',
 	},
 };
 
@@ -95,6 +101,13 @@ const theme = {
 	query,
 };
 
-const Theme = ({ children }) => <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+const Theme = ({ theme: themeColor, children }) => {
+	const color = theme.colors[themeColor];
+	return (
+		<ThemeProvider theme={{ ...theme, colors: color }}>
+			{children}
+		</ThemeProvider>
+	);
+};
 
 export default Theme;

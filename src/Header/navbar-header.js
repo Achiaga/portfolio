@@ -6,13 +6,18 @@ const HeaderContainer = styled.div`
 	left: 0;
 	top: 0;
 	width: 100%;
-	padding: 1em 0;
+	padding: 0.8em 0;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	font-family: 'Asap', sans-serif;
-	background: #1e1e1e;
+	background: ${(props) => props.theme.colors.secondary};
+	color: ${(props) => props.theme.colors.letter};
 	z-index: 9999;
+	box-shadow: 0 -2px 10px rgba(0, 0, 0, 1);
+	@media only screen and (max-width: 550px) {
+		display: none;
+	}
 `;
 
 const Header = styled.div`
@@ -21,7 +26,11 @@ const Header = styled.div`
 	justify-content: center;
 	width: 50%;
 	background: #1f1f1f;
-	background: linear-gradient(to right, palevioletred ${(props) => props.scroll}, white 0);
+	background: linear-gradient(
+		to right,
+		palevioletred ${(props) => props.scroll},
+		${(props) => props.theme.colors.letter} 0
+	);
 	color: ${(props) => (props.isSafari ? 'white' : 'transparent')};
 	-webkit-background-clip: text;
 	@media only screen and (max-width: 800px) {
@@ -65,8 +74,7 @@ const HeaderLine = styled.div`
 	height: 2px;
 	min-width: 6%;
 	margin: 0px auto;
-
-	background-color: white;
+	background-color: ${(props) => props.theme.colors.letter};
 	@media only screen and (max-width: 450px) {
 		min-width: 4%;
 	}
@@ -79,29 +87,37 @@ const HeaderLine = styled.div`
 	}
 `;
 
+const navbar = {
+	intro: 'Intro',
+	exp: 'Experience',
+	skills: 'Skills',
+	project: 'Projects',
+	about: 'About',
+};
+
+const NavbarItem = ({ navbarValue, navbarKey, handleScroll }) => {
+	return (
+		<>
+			<HeaderTextContainer id={navbarKey} onClick={handleScroll}>
+				<HeaderText>{navbarValue}</HeaderText>
+			</HeaderTextContainer>
+			{navbarKey !== 'about' && <HeaderLine />}
+		</>
+	);
+};
+
 const NavbarHeader = ({ isSafari, handleScroll, scrollProgress }) => {
 	return (
 		<HeaderContainer>
 			<Header isSafari={isSafari} scroll={scrollProgress}>
-				<HeaderTextContainer id='intro' onClick={handleScroll}>
-					<HeaderText>Intro</HeaderText>
-				</HeaderTextContainer>
-				<HeaderLine />
-				<HeaderTextContainer id='exp' onClick={handleScroll}>
-					<HeaderText>Experience</HeaderText>
-				</HeaderTextContainer>
-				<HeaderLine />
-				<HeaderTextContainer id='skills' onClick={handleScroll}>
-					<HeaderText>Skills</HeaderText>
-				</HeaderTextContainer>
-				<HeaderLine />
-				<HeaderTextContainer id='project' onClick={handleScroll}>
-					<HeaderText>Projects</HeaderText>
-				</HeaderTextContainer>
-				<HeaderLine />
-				<HeaderTextContainer id='about' onClick={handleScroll}>
-					<HeaderText>About</HeaderText>
-				</HeaderTextContainer>
+				{Object.entries(navbar).map(([navbarKey, navbarValue]) => (
+					<NavbarItem
+						key={navbarKey}
+						navbarKey={navbarKey}
+						navbarValue={navbarValue}
+						handleScroll={handleScroll}
+					/>
+				))}
 			</Header>
 		</HeaderContainer>
 	);

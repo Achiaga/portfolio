@@ -13,7 +13,7 @@ const ToastWrapper = styled.div`
 	}
 `;
 
-const Toast = styled.div`
+const ToastMessage = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -27,8 +27,8 @@ const Toast = styled.div`
 	margin-bottom: 15px;
 	border-radius: 3px;
 	border-left: 6px solid palevioletred;
-	box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14),
-		0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+	box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+		0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
 	font-family: 'Asap', sans-serif;
 	@media only screen and (max-width: 450px) {
 		width: 300px;
@@ -36,7 +36,7 @@ const Toast = styled.div`
 	}
 `;
 
-function Notification({ toast }) {
+const Toast = ({ toast }) => {
 	return (
 		<ToastWrapper>
 			{toast.map((popup, index) => (
@@ -45,12 +45,12 @@ function Notification({ toast }) {
 						initial={{ opacity: 0, y: 50, scale: 0.3 }}
 						animate={{ opacity: 1, y: 0, scale: 1 }}
 						exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.2 } }}>
-						<Toast>{popup}</Toast>
+						<ToastMessage>{popup}</ToastMessage>
 					</motion.div>
 				</AnimatePresence>
 			))}
 		</ToastWrapper>
 	);
-}
+};
 
-export default Notification;
+export default Toast;

@@ -3,22 +3,22 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { Github } from '@styled-icons/boxicons-logos';
 import { ExternalLinkOutline } from '@styled-icons/evaicons-outline';
-import Snake from '../assets/snake.png';
-import City from '../assets/city-simulation.png';
-import Candy from '../assets/candy-shop.png';
-import ToDo from '../assets/to-do.png';
-import SpaceBar from '../assets/space-bar.png';
-import RGB from '../assets/rgb-game.png';
-import Error404 from '../assets/error-404.png';
-import MachineLearning from '../assets/machine-learning.png';
-import Argonauts from '../assets/argonauts.png';
-import Weather from '../assets/weather.png';
-import Bitcoin from '../assets/bitcoin.png';
-import BurgerApp from '../assets/burger-app.png';
+import Snake from '../../assets/snake.png';
+import City from '../../assets/city-simulation.png';
+import Candy from '../../assets/candy-shop.png';
+import ToDo from '../../assets/to-do.png';
+import SpaceBar from '../../assets/space-bar.png';
+import RGB from '../../assets/rgb-game.png';
+import Error404 from '../../assets/error-404.png';
+import MachineLearning from '../../assets/machine-learning.png';
+import Argonauts from '../../assets/argonauts.png';
+import Weather from '../../assets/weather.png';
+import Bitcoin from '../../assets/bitcoin.png';
+import BurgerApp from '../../assets/burger-app.png';
 
 const Container = styled(motion.div)`
 	width: 100%;
-	color: white;
+	color: ${(props) => props.theme.colors.letter};
 	overflow: hidden;
 	padding-top: 2em;
 	font-family: 'Asap', sans-serif;
@@ -46,7 +46,8 @@ const Card = styled(motion.div)`
 	border-radius: 5px;
 	padding: 15px;
 	background: #ffffff14;
-	box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 3px 0px, rgba(0, 0, 0, 0.06) 0px 10px 15px 0px;
+	box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 3px 0px,
+		rgba(0, 0, 0, 0.06) 0px 10px 15px 0px;
 	@media only screen and (max-width: 450px) {
 		width: auto;
 		margin: 2em 0;
@@ -74,7 +75,7 @@ const LinkContainer = styled.div`
 	padding-right: 15px;
 	padding-bottom: 15px;
 	a {
-		color: white;
+		color: ${(props) => props.theme.colors.letter};
 		text-decoration: none;
 	}
 `;
@@ -90,7 +91,8 @@ const Button = styled(motion.div)`
 const Img = styled.img`
 	border-radius: 5px;
 	height: 100%;
-	box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 3px 0px, rgba(0, 0, 0, 0.06) 0px 10px 15px 0px;
+	box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 3px 0px,
+		rgba(0, 0, 0, 0.06) 0px 10px 15px 0px;
 	@media only screen and (max-width: 450px) {
 		width: 100%;
 	}
@@ -138,7 +140,7 @@ const TechItems = styled.span`
 	padding-right: 5px;
 	padding-top: 0px;
 	font-size: 16px;
-	color: #ffffffbf;
+	color: ${(props) => props.theme.colors.letter};
 	@media only screen and (max-width: 450px) {
 		font-size: 16px;
 	}
@@ -168,12 +170,16 @@ const Link = ({ githubLink, externalLink }) => {
 	return (
 		<LinkContainer>
 			<a href={githubLink} target='_blank' rel='noopener noreferrer'>
-				<Button whileHover={{ y: [0, -8, 0], color: 'palevioletred' }} transition={{ duration: 0.5 }}>
+				<Button
+					whileHover={{ y: [0, -8, 0], color: 'palevioletred' }}
+					transition={{ duration: 0.5 }}>
 					<Github />
 				</Button>
 			</a>
 			<a href={externalLink} target='_blank' rel='noopener noreferrer'>
-				<Button whileHover={{ y: [0, -8, 0], color: 'palevioletred' }} transition={{ duration: 0.5 }}>
+				<Button
+					whileHover={{ y: [0, -8, 0], color: 'palevioletred' }}
+					transition={{ duration: 0.5 }}>
 					<ExternalLinkOutline />
 				</Button>
 			</a>
@@ -187,7 +193,10 @@ const BeginnerProjects = () => {
 	const handleShowMore = () => setShowMore(true);
 
 	return (
-		<Container initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }}>
+		<Container
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			transition={{ duration: 0.4 }}>
 			<CardRow>
 				<Card>
 					<Link
@@ -200,8 +209,8 @@ const BeginnerProjects = () => {
 					<TextContainer>
 						<Title>BurgerApp</Title>
 						<Explanation>
-							My first project in Reactjs from an online bootcamp. It is a web where you can make your own
-							burguer and purchase it.
+							My first project in Reactjs from an online bootcamp. It is a web
+							where you can make your own burguer and purchase it.
 						</Explanation>
 						<Technology>
 							<TechItems>
@@ -234,7 +243,9 @@ const BeginnerProjects = () => {
 					</ImgContainer>
 					<TextContainer>
 						<Title>Crypto</Title>
-						<Explanation>A MERN web about crypto price with users dynamic interaction.</Explanation>
+						<Explanation>
+							A MERN web about crypto price with users dynamic interaction.
+						</Explanation>
 						<Technology>
 							<TechItems>
 								<Hastag>#</Hastag>React
@@ -271,7 +282,9 @@ const BeginnerProjects = () => {
 					</ImgContainer>
 					<TextContainer>
 						<Title>Web Design</Title>
-						<Explanation>A simple web design about a machine learning company.</Explanation>
+						<Explanation>
+							A simple web design about a machine learning company.
+						</Explanation>
 						<Technology>
 							<TechItems>
 								<Hastag>#</Hastag>React
@@ -292,7 +305,9 @@ const BeginnerProjects = () => {
 					</ImgContainer>
 					<TextContainer>
 						<Title>Weather</Title>
-						<Explanation>A web about the weather in differents cities</Explanation>
+						<Explanation>
+							A web about the weather in differents cities
+						</Explanation>
 						<Technology>
 							<TechItems>
 								<Hastag>#</Hastag>React
@@ -348,7 +363,9 @@ const BeginnerProjects = () => {
 					</ImgContainer>
 					<TextContainer>
 						<Title>Error 404</Title>
-						<Explanation>An Error 404 page inspired in "Mr. Robot".</Explanation>
+						<Explanation>
+							An Error 404 page inspired in "Mr. Robot".
+						</Explanation>
 						<Technology>
 							<TechItems>
 								<Hastag>#</Hastag>React
@@ -362,7 +379,10 @@ const BeginnerProjects = () => {
 			</CardRow>
 			{!showMore && (
 				<ButtonContainer>
-					<ButtonShow whileHover={{ y: [0, -8, 0] }} transition={{ duration: 0.5 }} onClick={handleShowMore}>
+					<ButtonShow
+						whileHover={{ y: [0, -8, 0] }}
+						transition={{ duration: 0.5 }}
+						onClick={handleShowMore}>
 						Show more
 					</ButtonShow>
 				</ButtonContainer>
@@ -401,7 +421,9 @@ const BeginnerProjects = () => {
 							</ImgContainer>
 							<TextContainer>
 								<Title>City Simulation</Title>
-								<Explanation>A city Simulation with dynamic car movement.</Explanation>
+								<Explanation>
+									A city Simulation with dynamic car movement.
+								</Explanation>
 								<Technology>
 									<TechItems>
 										<Hastag>#</Hastag>Javascript
@@ -492,7 +514,9 @@ const BeginnerProjects = () => {
 							</ImgContainer>
 							<TextContainer>
 								<Title>RGB Game</Title>
-								<Explanation>A simple game to practice your RGB skills.</Explanation>
+								<Explanation>
+									A simple game to practice your RGB skills.
+								</Explanation>
 								<Technology>
 									<TechItems>
 										<Hastag>#</Hastag>Javascript

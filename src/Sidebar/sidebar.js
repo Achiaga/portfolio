@@ -12,6 +12,7 @@ const SideContainer = styled.div`
 	z-index: 10;
 	text-align: center;
 	color: white;
+	color: ${(props) => props.theme.colors.letter};
 	@media only screen and (max-width: 800px) {
 		display: none;
 	}
@@ -40,7 +41,7 @@ const SideText = styled.div`
 const SideIcon = styled(motion.div)`
 	padding: 0.5em 0;
 	a {
-		color: white;
+		color: ${(props) => props.theme.colors.letter};
 		text-decoration: none;
 	}
 	svg {
@@ -56,6 +57,7 @@ const Line = styled.div`
 	height: 50px;
 	margin: 0px auto;
 	background-color: white;
+	background-color: ${(props) => props.theme.colors.letter};
 `;
 
 const Sidebar = ({ handleToast }) => {
@@ -77,7 +79,10 @@ const Sidebar = ({ handleToast }) => {
 					</a>
 				</SideIcon>
 				<SideIcon whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.85 }}>
-					<a href='https://github.com/Achiaga' target='_blank' rel='noopener noreferrer'>
+					<a
+						href='https://github.com/Achiaga'
+						target='_blank'
+						rel='noopener noreferrer'>
 						<Github />
 					</a>
 				</SideIcon>
@@ -85,7 +90,10 @@ const Sidebar = ({ handleToast }) => {
 					<Email onClick={handleClipboardClick} />
 				</SideIcon>
 				<SideIcon whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.85 }}>
-					<a href='https://www.linkedin.com/in/alfonso-achiaga/' target='_blank' rel='noopener noreferrer'>
+					<a
+						href='https://www.linkedin.com/in/alfonso-achiaga/'
+						target='_blank'
+						rel='noopener noreferrer'>
 						<LinkedinSquare />
 					</a>
 				</SideIcon>

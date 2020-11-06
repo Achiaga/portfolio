@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { motion, AnimateSharedLayout } from 'framer-motion';
 import ItemExperienceList from './item-experience-list';
 import ItemExperienceInfo from './item-experience-info';
-import { dataExperience } from './data';
+import { dataExperience } from '../../data/data';
 
 const Container = styled(motion.section)`
 	padding-top: 150px;
@@ -12,7 +12,7 @@ const Container = styled(motion.section)`
 	padding-right: 170px;
 	margin: 0px auto;
 	max-width: 1600px;
-	color: white;
+	color: ${(props) => props.theme.colors.letter};
 	overflow: hidden;
 	font-family: 'Asap', sans-serif;
 	@media only screen and (max-width: 450px) {
@@ -26,7 +26,7 @@ const Container = styled(motion.section)`
 
 const Title = styled(motion.div)`
 	width: 100%;
-	color: white;
+	color: ${(props) => props.theme.colors.letter};
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
@@ -52,7 +52,7 @@ const Line = styled.div`
 	display: block;
 	width: 80%;
 	height: 0px;
-	border-bottom: 0.5px solid #ffffff5e;
+	border-bottom: 0.5px solid ${(props) => props.theme.colors.letter};
 	/* margin: 0px auto; */
 	@media only screen and (max-width: 450px) {
 		width: 70%;
@@ -61,7 +61,7 @@ const Line = styled.div`
 
 const ListContainer = styled(motion.div)`
 	width: 100%;
-	color: white;
+	color: ${(props) => props.theme.colors.letter};
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;

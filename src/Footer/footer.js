@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
 	font-size: 20px;
-	color: white;
+	color: ${(props) => props.theme.colors.letter};
 	padding: 1rem 0;
 	font-family: monospace;
 	@media only screen and (max-width: 450px) {

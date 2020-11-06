@@ -1,18 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import CarbonFootprint from '../assets/carbon-footprint.png';
-import MarcoPolo from '../assets/marco-polo.png';
-import Wanteat from '../assets/wanteat.png';
-import NinjaSimulation from '../assets/ninja-simulation.png';
-import AmmoTank from '../assets/ammo-tank.png';
 import { Github } from '@styled-icons/boxicons-logos';
 import { ExternalLinkOutline } from '@styled-icons/evaicons-outline';
-import AmmoTankVideo from '../assets/tank-ammo.mov';
+
+import CarbonFootprint from '../../assets/carbon-footprint.png';
+import MarcoPolo from '../../assets/marco-polo.png';
+import Wanteat from '../../assets/wanteat.png';
+import NinjaSimulation from '../../assets/ninja-simulation.png';
+import AmmoTank from '../../assets/ammo-tank.png';
+import AmmoTankVideo from '../../assets/tank-ammo.mov';
 
 const Container = styled(motion.div)`
 	padding-top: 2em;
-	color: white;
+	color: ${(props) => props.theme.colors.letter};
 	overflow: hidden;
 	font-family: 'Asap', sans-serif;
 	width: 100%;
@@ -106,7 +107,8 @@ const Card = styled.div`
 	border-radius: 5px;
 	padding: 25px 30px;
 	background: #ffffff14;
-	box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 3px 0px, rgba(0, 0, 0, 0.06) 0px 10px 15px 0px;
+	box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 3px 0px,
+		rgba(0, 0, 0, 0.06) 0px 10px 15px 0px;
 	@media only screen and (max-width: 450px) {
 		width: 75%;
 		padding: 15px 20px;
@@ -151,7 +153,7 @@ const TechItems = styled.span`
 	padding-right: 10px;
 	padding-top: 10px;
 	font-size: 18px;
-	color: #ffffffbf;
+	color: ${(props) => props.theme.colors.letter};
 	@media only screen and (max-width: 450px) {
 		font-size: 14px;
 	}
@@ -167,7 +169,7 @@ const ButtonContainer = styled.div`
 	justify-content: flex-start;
 	padding-top: 1em;
 	a {
-		color: white;
+		color: ${(props) => props.theme.colors.letter};
 		text-decoration: none;
 	}
 `;
@@ -185,7 +187,10 @@ const Button = styled(motion.div)`
 
 const AdvancedProjects = ({ isMobile }) => {
 	return (
-		<Container initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }}>
+		<Container
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			transition={{ duration: 0.4 }}>
 			<Row>
 				<LeftRow text={false}>
 					<ImgContainer>
@@ -196,8 +201,8 @@ const AdvancedProjects = ({ isMobile }) => {
 					<Card>
 						<Title>Carbon Footprint Calculator</Title>
 						<Description>
-							An open-source project about calculating the carbon foootprint for individuals and small
-							companies.
+							An open-source project about calculating the carbon foootprint for
+							individuals and small companies.
 						</Description>
 						<Technology>
 							<TechItems>
@@ -219,13 +224,23 @@ const AdvancedProjects = ({ isMobile }) => {
 							</TechItems>
 						</Technology>
 						<ButtonContainer>
-							<a href='https://github.com/Achiaga/carbon_footprint' target='_blank' rel='noopener noreferrer'>
-								<Button whileHover={{ y: [0, -8, 0], color: 'palevioletred' }} transition={{ duration: 0.5 }}>
+							<a
+								href='https://github.com/Achiaga/carbon_footprint'
+								target='_blank'
+								rel='noopener noreferrer'>
+								<Button
+									whileHover={{ y: [0, -8, 0], color: 'palevioletred' }}
+									transition={{ duration: 0.5 }}>
 									<Github />
 								</Button>
 							</a>
-							<a href='https://footprint.now.sh/' target='_blank' rel='noopener noreferrer'>
-								<Button whileHover={{ y: [0, -8, 0], color: 'palevioletred' }} transition={{ duration: 0.5 }}>
+							<a
+								href='https://footprint.now.sh/'
+								target='_blank'
+								rel='noopener noreferrer'>
+								<Button
+									whileHover={{ y: [0, -8, 0], color: 'palevioletred' }}
+									transition={{ duration: 0.5 }}>
 									<ExternalLinkOutline />
 								</Button>
 							</a>
@@ -237,7 +252,10 @@ const AdvancedProjects = ({ isMobile }) => {
 				<LeftRow text={true}>
 					<Card>
 						<Title>Wanteat App</Title>
-						<Description>Healthy mealplan generator to maintain your diet without getting bored.</Description>
+						<Description>
+							Healthy mealplan generator to maintain your diet without getting
+							bored.
+						</Description>
 						<Technology>
 							<TechItems>
 								<Hastag>#</Hastag>React
@@ -258,8 +276,13 @@ const AdvancedProjects = ({ isMobile }) => {
 							</TechItems>
 						</Technology>
 						<ButtonContainer>
-							<a href='https://wanteat.app/' target='_blank' rel='noopener noreferrer'>
-								<Button whileHover={{ y: [0, -8, 0], color: 'palevioletred' }} transition={{ duration: 0.5 }}>
+							<a
+								href='https://wanteat.app/'
+								target='_blank'
+								rel='noopener noreferrer'>
+								<Button
+									whileHover={{ y: [0, -8, 0], color: 'palevioletred' }}
+									transition={{ duration: 0.5 }}>
 									<ExternalLinkOutline />
 								</Button>
 							</a>
@@ -282,8 +305,9 @@ const AdvancedProjects = ({ isMobile }) => {
 					<Card>
 						<Title>Ninja Simulation</Title>
 						<Description>
-							A threejs project to show graphically differents statistics' theories. So the user can visualize
-							them. The objective is to build a web that can take statics' theories as input and run them
+							A threejs project to show graphically differents statistics'
+							theories. So the user can visualize them. The objective is to
+							build a web that can take statics' theories as input and run them
 							graphically automatically.
 						</Description>
 						<Technology>
@@ -305,12 +329,19 @@ const AdvancedProjects = ({ isMobile }) => {
 								href='https://github.com/Achiaga/Analytics_simulations'
 								target='_blank'
 								rel='noopener noreferrer'>
-								<Button whileHover={{ y: [0, -8, 0], color: 'palevioletred' }} transition={{ duration: 0.5 }}>
+								<Button
+									whileHover={{ y: [0, -8, 0], color: 'palevioletred' }}
+									transition={{ duration: 0.5 }}>
 									<Github />
 								</Button>
 							</a>
-							<a href='https://analytics-simulations.vercel.app/' target='_blank' rel='noopener noreferrer'>
-								<Button whileHover={{ y: [0, -8, 0], color: 'palevioletred' }} transition={{ duration: 0.5 }}>
+							<a
+								href='https://analytics-simulations.vercel.app/'
+								target='_blank'
+								rel='noopener noreferrer'>
+								<Button
+									whileHover={{ y: [0, -8, 0], color: 'palevioletred' }}
+									transition={{ duration: 0.5 }}>
 									<ExternalLinkOutline />
 								</Button>
 							</a>
@@ -323,8 +354,9 @@ const AdvancedProjects = ({ isMobile }) => {
 					<Card>
 						<Title>Marco Polo</Title>
 						<Description>
-							A project is to see graphically how many countries you have visited and the percentage of the
-							world you have visited. You can also share it with friends to see who is the most adventurous.
+							A project is to see graphically how many countries you have
+							visited and the percentage of the world you have visited. You can
+							also share it with friends to see who is the most adventurous.
 						</Description>
 						<Technology>
 							<TechItems>
@@ -346,13 +378,23 @@ const AdvancedProjects = ({ isMobile }) => {
 							</TechItems>
 						</Technology>
 						<ButtonContainer>
-							<a href='https://github.com/Achiaga/marco-polo' target='_blank' rel='noopener noreferrer'>
-								<Button whileHover={{ y: [0, -8, 0], color: 'palevioletred' }} transition={{ duration: 0.5 }}>
+							<a
+								href='https://github.com/Achiaga/marco-polo'
+								target='_blank'
+								rel='noopener noreferrer'>
+								<Button
+									whileHover={{ y: [0, -8, 0], color: 'palevioletred' }}
+									transition={{ duration: 0.5 }}>
 									<Github />
 								</Button>
 							</a>
-							<a href='https://mytrips.now.sh/' target='_blank' rel='noopener noreferrer'>
-								<Button whileHover={{ y: [0, -8, 0], color: 'palevioletred' }} transition={{ duration: 0.5 }}>
+							<a
+								href='https://mytrips.now.sh/'
+								target='_blank'
+								rel='noopener noreferrer'>
+								<Button
+									whileHover={{ y: [0, -8, 0], color: 'palevioletred' }}
+									transition={{ duration: 0.5 }}>
 									<ExternalLinkOutline />
 								</Button>
 							</a>
@@ -382,9 +424,10 @@ const AdvancedProjects = ({ isMobile }) => {
 					<Card>
 						<Title>Ammo Tank</Title>
 						<Description>
-							A Threejs project about a dynamic tank with physics which can shoot balls to boxes, jump over
-							ramps and collide with other objects. It is not currently online but you can see a short demo of
-							it.
+							A Threejs project about a dynamic tank with physics which can
+							shoot balls to boxes, jump over ramps and collide with other
+							objects. It is not currently online but you can see a short demo
+							of it.
 						</Description>
 						<Technology>
 							<TechItems>

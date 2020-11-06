@@ -1,15 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { dataExperience } from './data';
+import { dataExperience } from '../../data/data';
 
 const ExperienceInfo = styled(motion.div)`
 	width: 50%;
-	border: 2px solid palevioletred;
-	background: #191919;
+	border: 3px solid palevioletred;
+	background: ${(props) => props.theme.colors.secondary};
 	border-radius: 8px;
 	padding: 1em;
 	height: 292px;
+	box-shadow: 2px 2px 12px rgb(0 0 0);
 	@media only screen and (max-width: 450px) {
 		width: 90%;
 		height: auto;
@@ -21,7 +22,7 @@ const Title = styled(motion.div)`
 	padding: 0 0.2em;
 	padding-bottom: 20px;
 	a {
-		color: white;
+		color: ${(props) => props.theme.colors.letter};
 		text-decoration: none;
 		cursor: pointer;
 		&:hover {
@@ -70,16 +71,25 @@ const ItemExperienceInfo = ({ selected }) => {
 	return (
 		<ExperienceInfo>
 			<Title>
-				<a href={dataExperience.info[selected].link} target='_blank' rel='noopener noreferrer'>
+				<a
+					href={dataExperience.info[selected].link}
+					target='_blank'
+					rel='noopener noreferrer'>
 					<TitleText>{dataExperience.info[selected].title}</TitleText>
 				</a>
 				<DateText>{dataExperience.info[selected].date}</DateText>
 			</Title>
 			<Body>
 				<ListInfo>
-					{dataExperience.info[selected].first && <Info>{dataExperience.info[selected].first}</Info>}
-					{dataExperience.info[selected].second && <Info>{dataExperience.info[selected].second}</Info>}
-					{dataExperience.info[selected].third && <Info>{dataExperience.info[selected].third}</Info>}
+					{dataExperience.info[selected].first && (
+						<Info>{dataExperience.info[selected].first}</Info>
+					)}
+					{dataExperience.info[selected].second && (
+						<Info>{dataExperience.info[selected].second}</Info>
+					)}
+					{dataExperience.info[selected].third && (
+						<Info>{dataExperience.info[selected].third}</Info>
+					)}
 				</ListInfo>
 			</Body>
 		</ExperienceInfo>

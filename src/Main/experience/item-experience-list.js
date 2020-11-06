@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { RightArrow } from '@styled-icons/boxicons-regular/';
-import { dataExperience } from './data';
+import { dataExperience } from '../../data/data';
 
 const Item = styled(motion.li)`
 	cursor: pointer;
@@ -13,12 +13,18 @@ const Item = styled(motion.li)`
 	padding-right: 15px;
 	line-height: 50px;
 	border-radius: 5px;
-	color: ${(props) => (props.index === props.selected ? 'white' : '#ffffff8f')};
+	color: ${(props) =>
+		props.index === props.selected
+			? props.theme.colors.letter
+			: props.theme.colors.transparent};
 	background: transparent;
 	svg {
 		width: 15px;
 		padding-right: 0.5em;
-		color: ${(props) => (props.index === props.selected ? 'white' : 'palevioletred')};
+		color: ${(props) =>
+			props.index === props.selected
+				? props.theme.colors.letter
+				: 'palevioletred'};
 		z-index: 2;
 	}
 	span {
@@ -50,10 +56,17 @@ const BackgroundTitle = styled(motion.div)`
 
 const ItemExperienceList = ({ item, index, handleClick, selected }) => {
 	return (
-		<Item animate key={index} index={index} selected={selected} onClick={() => handleClick(index)}>
+		<Item
+			animate
+			key={index}
+			index={index}
+			selected={selected}
+			onClick={() => handleClick(index)}>
 			{index === selected && <BackgroundTitle layoutId='underline' />}
 			<RightArrow />
-			<motion.span whileTap={{ scale: 0.95 }}>{dataExperience.list[item].main}</motion.span>
+			<motion.span whileTap={{ scale: 0.95 }}>
+				{dataExperience.list[item].main}
+			</motion.span>
 		</Item>
 	);
 };
