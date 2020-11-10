@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import styled, { keyframes, css } from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { InitializeAnalytics } from './utils/analytics';
 import Theme from './Theme';
 
@@ -41,7 +41,8 @@ const App = () => {
 	const [didScroll, setDidScroll] = useState(false);
 	const [toast, setToast] = useState([]);
 	const [isSafari, setIsSafari] = useState(false);
-	const [theme, setTheme] = useState('dark');
+	const [theme, setTheme] = useState(['dark', 'light', 'party']);
+	const [count, setCount] = useState(0);
 
 	const heroRef = useRef(null);
 	const expRef = useRef(null);
@@ -109,14 +110,14 @@ const App = () => {
 		}, 3000);
 	};
 
-	const handleTheme = (e) => {
-		const { id } = e.target;
-		setTheme(id);
+	const handleTheme = () => {
+		if (count > 1) return setCount(0);
+		return setCount(count + 1);
 	};
 
 	return (
-		<Theme theme={theme}>
-			<AppContainer themeType={theme}>
+		<Theme theme={theme[count]}>
+			<AppContainer themeType={theme[count]}>
 				<Header
 					isSafari={isSafari}
 					scrollProgress={scrollProgress}
