@@ -9,4 +9,4 @@ Hi, my name is Achiaga. This is my portfolio for a frontend developer. **_Reactj
 <br/>
 
 ### Note
-Feel free to copy it if you like it. I would really appreciate it if you could give some feedback (open an issue). :)
+Feel free to copy it if you like it. I would really appreciate it if you could give some feedback (opening an issue). :)
